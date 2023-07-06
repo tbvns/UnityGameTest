@@ -1,28 +1,15 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
-
-# MemoryCaptures can get excessive in size.
-# They also could contain extremely sensitive data
-/[Mm]emoryCaptures/
-
-# Recordings can get excessive in size
-/[Rr]ecordings/
-
-/[Aa]ssets/AssetStoreTools*
-
-/[Aa]ssets/Plugins/Editor/JetBrains*
-
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+/MemoryCaptures/
+/Recordings/
+/Assets/AssetStoreTools*
 .vs/
-
-# Gradle cache directory
 .gradle/
-
-ExportedObj/
 .consulo/
 *.csproj
 *.unityproj
@@ -38,21 +25,15 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-
 sysinfo.txt
-
 *.apk
 *.aab
 *.unitypackage
 *.app
-
 crashlytics-build.properties
-
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
-
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+/Assets/AddressableAssetsData/*/*.bin*
+/Assets/StreamingAssets/aa.meta
+/Assets/StreamingAssets/aa/*
