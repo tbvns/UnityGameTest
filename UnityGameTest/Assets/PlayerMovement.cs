@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
     public float speed = 12f;
-    public float Gravity = -9.81f;
+    public float Gravity = -19f;
     Vector3 Velocity;
     public Transform groundCheck;
     public float GroundDistance = 0.4f;
@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, GroundDistance, groundMask);
 
-        if (isGrounded && Velocity.y < 0) { 
-            Velocity.y = -2f;
+        if (isGrounded) { 
+            Velocity.y = 0f;
         }
 
         float X = Input.GetAxis("Horizontal");
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        Velocity.y = Gravity * Time.deltaTime;
+        Velocity.y += Gravity * Time.deltaTime;
         controller.Move(Velocity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
