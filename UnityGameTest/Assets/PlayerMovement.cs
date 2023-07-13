@@ -6,14 +6,20 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController controller;
-    public float speed = 12f;
+    public float speed = 5f;
     public float Gravity = -19f;
     Vector3 Velocity;
     public Transform groundCheck;
     public float GroundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
-    public float JumpHeight = 20f;
+    public float JumpHeight = 1f;
+    public float X = 0;
+    public float Z = 0;
+    public Vector3 right = Vector3.zero;
+    public Vector3 forward = Vector3.zero;
+    public bool wasgrounded = false;
+    public float timegrounded = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +33,30 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, GroundDistance, groundMask);
 
         if (isGrounded && Velocity.y < 0) { 
-            Velocity.y = 0f;
+            Velocity.y = -2f;
+
+            X = Input.GetAxis("Horizontal");
+            Z = Input.GetAxis("Vertical");
+            right = transform.right;
+            forward = transform.forward;
+
+            if (!wasgrounded)
+            {
+                timegrounded = timegrounded + Time.deltaTime;
+                Z = Input.GetAxis("Vertical") * timegrounded * 2;
+                if (timegrounded > 0.5) {
+                    wasgrounded = true;
+                    timegrounded = 0;
+                }
+            }
+        } else
+        {
+            wasgrounded = false;
         }
 
-        float X = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        
 
-        Vector3 move = transform.right * X + transform.forward * z;
+        Vector3 move = right * X + forward * Z;
 
         controller.Move(move * speed * Time.deltaTime);
 
