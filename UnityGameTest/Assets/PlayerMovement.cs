@@ -43,8 +43,9 @@ public class PlayerMovement : MonoBehaviour
             if (!wasgrounded)
             {
                 timegrounded = timegrounded + Time.deltaTime;
-                Z = Input.GetAxis("Vertical") * timegrounded * 2;
-                if (timegrounded > 0.5) {
+                X = Input.GetAxis("Horizontal") * timegrounded;
+                Z = Input.GetAxis("Vertical") * timegrounded;
+                if (timegrounded > 1) {
                     wasgrounded = true;
                     timegrounded = 0;
                 }
