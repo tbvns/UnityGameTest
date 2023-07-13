@@ -530,14 +530,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1583805353}
-  speed: 12
-  Gravity: -19.62
+  speed: 5
+  Gravity: -19
   groundCheck: {fileID: 559915491}
   GroundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  JumpHeight: 3
+  JumpHeight: 1
+  X: 0
+  Z: 0
+  right: {x: 0, y: 0, z: 0}
+  forward: {x: 0, y: 0, z: 0}
+  wasgrounded: 0
+  timegrounded: 0
 --- !u!1 &1972789814
 GameObject:
   m_ObjectHideFlags: 0
