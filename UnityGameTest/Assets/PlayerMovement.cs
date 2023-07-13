@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 right = Vector3.zero;
     public Vector3 forward = Vector3.zero;
     public bool wasgrounded = false;
+    public bool asjumped = false;
     public float timegrounded = 0;
 
     // Start is called before the first frame update
@@ -40,12 +41,14 @@ public class PlayerMovement : MonoBehaviour
             right = transform.right;
             forward = transform.forward;
 
-            if (!wasgrounded)
+            if (!wasgrounded && asjumped)
             {
                 timegrounded = timegrounded + Time.deltaTime;
-                Z = Input.GetAxis("Vertical") * timegrounded * 2;
-                if (timegrounded > 0.5) {
+                X = Input.GetAxis("Horizontal") * timegrounded;
+                Z = Input.GetAxis("Vertical") * timegrounded;
+                if (timegrounded > 1) {
                     wasgrounded = true;
+                    asjumped = false;
                     timegrounded = 0;
                 }
             }
@@ -67,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
             controller.Move(Velocity * Time.deltaTime);
+            asjumped = true;
         }
 
     }
