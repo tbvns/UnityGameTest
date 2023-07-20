@@ -24,7 +24,17 @@ public class InventoryObject : ScriptableObject
         
         }
     }
-
+    public void RemItem(ItemObject _item, int _amount)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                Container[i].RemAmount(_amount);
+                break;
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -40,5 +50,9 @@ public class InventorySlot
     public void AddAmount(int value)
     {
         amount += value;
+    }
+    public void RemAmount(int value)
+    {
+        amount -= value;
     }
 }

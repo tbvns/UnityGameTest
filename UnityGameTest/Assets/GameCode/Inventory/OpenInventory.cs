@@ -22,11 +22,15 @@ public class OpenInventory : MonoBehaviour
             {
                 isopened = false; 
                 inventory.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             } 
             else
             {
                 isopened = true;
                 inventory.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
