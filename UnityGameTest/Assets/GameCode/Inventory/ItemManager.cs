@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ItemManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ItemManager : MonoBehaviour
     public ItemObject item;
     public TMP_Dropdown dropdown;
     bool firstFrame = true;
+
 
     void Update()
     {
@@ -23,8 +25,15 @@ public class ItemManager : MonoBehaviour
             switch (index)
             {
                 case 0:
-                    inventory.AddItem(item, 1);
                     dropdown.value = 2;
+                    inventory.Container.ForEach(itm =>
+                    {
+                        if (itm.item.GetHeld())
+                        {
+                            itm.item.SetHeld(false);
+                        }
+                    });
+                    item.SetHeld(true);
                     break;
                 case 1:
                     inventory.RemItem(item, 1);

@@ -453,6 +453,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: c5ac82a74a7fdc9428b0112d7c33275b, type: 2}
   item: {fileID: 11400000, guid: c5a48ac00d4c40c4aaaf9fc6be8d7c36, type: 2}
   dropdown: {fileID: 2821452600853248231}
+  ItemObject: {fileID: 3808365182626193060, guid: 657e8e9fc40477047a72d013d4d86aae, type: 3}
 --- !u!1 &4261183494578976688
 GameObject:
   m_ObjectHideFlags: 0

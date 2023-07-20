@@ -16,5 +16,17 @@ public abstract class ItemObject : ScriptableObject
     [TextArea(15, 20)]
     public string Description;
     public GameObject ItemPrefab;
-
+    public bool Held = false;
+    public void SetHeld(bool held)
+    {
+        Held = held;
+    }
+    public bool GetHeld()
+    {
+        return Held;
+    }
+    private void OnApplicationQuit()
+    {
+        Held = false;
+    }
 }
