@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 7099967479735750327, guid: 6fe7f20100f1e4d4ea35e53ad6c51d9c, type: 3}
   type: 3
   Description: YAY
+  ItemPrefab: {fileID: 3808365182626193060, guid: dae05d2eff7cd6b488f977fd78baa382, type: 3}
