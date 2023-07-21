@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697d8af6467d8c646857076198083673, type: 3}
+  m_Name: Sphere
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7099967479735750327, guid: 6fe7f20100f1e4d4ea35e53ad6c51d9c, type: 3}
+  type: 3
+  Description: YAY
+  ItemPrefab: {fileID: 3808365182626193060, guid: 657e8e9fc40477047a72d013d4d86aae, type: 3}
+  Held: 1
+  Drop: 0
