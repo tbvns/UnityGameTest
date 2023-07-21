@@ -36,6 +36,8 @@ public class OpenInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             isopened = false;
             inventory.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
     }
