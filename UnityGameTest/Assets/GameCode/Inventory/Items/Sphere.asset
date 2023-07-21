@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 3
   Description: YAY
   ItemPrefab: {fileID: 3808365182626193060, guid: 657e8e9fc40477047a72d013d4d86aae, type: 3}
-  Held: 0
+  Held: 1
+  Drop: 0

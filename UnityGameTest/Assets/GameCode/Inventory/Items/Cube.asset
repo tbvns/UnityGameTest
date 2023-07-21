@@ -17,3 +17,4 @@ MonoBehaviour:
   Description: A cube
   ItemPrefab: {fileID: 4035465872183112132, guid: 605a3d6d1f5510447811576166a54772, type: 3}
   Held: 1
+  Drop: 0
