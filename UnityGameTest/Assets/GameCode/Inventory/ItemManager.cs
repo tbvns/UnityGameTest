@@ -37,6 +37,7 @@ public class ItemManager : MonoBehaviour
                     break;
                 case 1:
                     inventory.RemItem(item, 1);
+                    item.SetDrop(true);
                     dropdown.value = 2;
                     break;
                 case 2:

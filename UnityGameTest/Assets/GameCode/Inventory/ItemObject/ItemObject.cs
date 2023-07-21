@@ -17,6 +17,7 @@ public abstract class ItemObject : ScriptableObject
     public string Description;
     public GameObject ItemPrefab;
     public bool Held = false;
+    public bool Drop = false;
     public void SetHeld(bool held)
     {
         Held = held;
@@ -28,5 +29,14 @@ public abstract class ItemObject : ScriptableObject
     private void OnApplicationQuit()
     {
         Held = false;
+        Drop = false;
+    }
+    public void SetDrop(bool SetDrop)
+    {
+        Drop = SetDrop;
+    }
+    public bool GetDrop()
+    {
+        return Drop;
     }
 }
