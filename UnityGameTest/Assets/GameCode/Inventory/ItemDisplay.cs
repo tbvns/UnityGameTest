@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDisplay : MonoBehaviour
 {
     public InventoryObject InventoryObject;
-    public GameObject oldItem;
+    GameObject oldItem;
     public GameObject hand;
     public TerrainLayer ItemLayer;
     // Start is called before the first frame update
@@ -16,6 +16,8 @@ public class ItemDisplay : MonoBehaviour
             container.item.SetHeld(false);
         
         });
+        oldItem = new GameObject();
+        oldItem.name = "null";
     }
 
     // Update is called once per frame
@@ -23,18 +25,25 @@ public class ItemDisplay : MonoBehaviour
     {
         InventoryObject.Container.ForEach(container =>
         {
-            if (container.item.GetHeld() && container.item != oldItem)
+            if (container.item.GetHeld())
             {
-                if(oldItem != null)
+                if (container.item.name != oldItem.name)
                 {
-                    Destroy(oldItem);
+                    if (oldItem != null)
+                    {
+                        Destroy(oldItem);
+                    }
+                    Debug.Log("NewItem");
+                    GameObject newitem = Instantiate(container.item.ItemPrefab);
+                    newitem.SetActive(true);
+                    newitem.transform.SetParent(hand.transform, false);
+                    newitem.transform.SetLocalPositionAndRotation(hand.transform.localPosition, hand.transform.localRotation);
+                    newitem.name = newitem.name.Split('(')[0];
+                    Debug.Log(oldItem.name + "   " + newitem.name);
+                    Destroy(newitem.GetComponent<Collider>());
+                    Destroy(newitem.GetComponent<Rigidbody>());
+                    oldItem = newitem;
                 }
-                GameObject newitem = Instantiate(container.item.ItemPrefab);
-                newitem.SetActive(true);
-                newitem.transform.SetParent(hand.transform, false);
-                newitem.transform.SetLocalPositionAndRotation(hand.transform.localPosition, hand.transform.localRotation);
-                Destroy(newitem.GetComponent<Collider>());
-                oldItem = newitem;
             }
             if (container.item.GetDrop())
             {
