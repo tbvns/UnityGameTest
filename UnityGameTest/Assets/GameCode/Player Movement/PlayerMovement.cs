@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public bool wasgrounded = false;
     public bool asjumped = false;
     public float timegrounded = 0;
+    public float FootStepTime;
+    public SoundPack GrassSoundPack;
+    public AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,13 @@ public class PlayerMovement : MonoBehaviour
             Z = Input.GetAxis("Vertical");
             right = transform.right;
             forward = transform.forward;
+
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                FootStep();
+            } else if(Input.GetAxis("Vertical") != 0) {
+                FootStep();
+            }
 
             if (!wasgrounded && asjumped)
             {
@@ -72,6 +82,17 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(Velocity * Time.deltaTime);
             asjumped = true;
         }
-
+    }
+    public void FootStep()
+    {
+        FootStepTime = FootStepTime + Time.deltaTime;
+        if (FootStepTime > 0.45)
+        {
+            int randomindex = Random.Range(0, GrassSoundPack.Container.Count);
+            AudioClip sound = GrassSoundPack.Container[randomindex];
+            AudioSource.GetComponent<AudioSource>().clip = sound;
+            AudioSource.Play();
+            FootStepTime = 0;
+        }
     }
 }
